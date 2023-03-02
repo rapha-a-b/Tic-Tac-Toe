@@ -28,7 +28,7 @@ let winOptions = [
 ];
 let turns = 9;
 
-function gamePlay(num) {
+function gameMoves(num) {
   if (gameOngoing) {
     if (turnsCounter % 2 === 0 && typeof board[num] !== "string") {
       turnsCounter++;
@@ -46,12 +46,12 @@ function gamePlay(num) {
       }
     }
     setTimeout(function () {
-      checkWin(sign);
+      gamePlay(sign);
     }, 500);
   }
 }
 
-function checkWin(symbol) {
+function gamePlay(symbol) {
   gameOngoing = true;
   for (let x of winOptions) {
     let isWinCount = 0;
