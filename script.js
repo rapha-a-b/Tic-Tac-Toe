@@ -1,10 +1,15 @@
 let cells = document.querySelectorAll(".cellClick");
 let resetButton = document.querySelector("button");
+let xScore = document.querySelector("#win-count #x");
+let oScore = document.querySelector("#win-count #o");
+
 resetButton.addEventListener("click", function () {
   resetBoard();
 });
 let turnsCounter = 0;
 let gameOngoing = true;
+let Xwin = 0;
+let Owin = 0;
 
 let board = [];
 function resetBoard() {
@@ -12,7 +17,7 @@ function resetBoard() {
   turnsCounter = 0;
   for (let x = 0; x < cells.length; x++) {
     cells[x].innerHTML = "";
-    cells[x].addEventListener("click", function () {});
+    // cells[x].addEventListener("click", function () {});
   }
 }
 
@@ -47,7 +52,7 @@ function gameMoves(num) {
     }
     setTimeout(function () {
       gamePlay(sign);
-    }, 500);
+    }, 10);
   }
 }
 
@@ -59,14 +64,27 @@ function gamePlay(symbol) {
     for (let y of x) {
       if (board[y] === symbol) {
         isWinCount++;
-        console.log(isWinCount);
         if (isWinCount === 3) {
+          ScoreKeep(symbol);
           alert(`${symbol} wins!`);
+
           resetBoard();
         }
       } else {
         isWinCount = 0;
       }
     }
+  }
+}
+
+function ScoreKeep(sign) {
+  console.log("im active");
+  if (sign === "❌") {
+    Xwin++;
+    console.log(Xwin);
+    xScore.innerHTML = Xwin;
+  } else {
+    Owin++;
+    oScore.innerHTML = `${Owin}`;
   }
 }

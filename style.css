@@ -16,7 +16,7 @@ body {
 }
 
 table {
-  margin-top: 50px;
+  margin-top: 5px;
   display: inline-block;
 }
 
@@ -27,4 +27,17 @@ table {
 
 .bottom {
   border-bottom: none;
+}
+
+#win-count {
+  width: 30vw;
+  height: 10vw;
+  background-color: blue;
+  margin: auto;
+  margin-top: 10px;
+  padding-bottom: 0px;
+}
+#win-count div {
+  display: inline-block;
+  width: 35%;
 }
