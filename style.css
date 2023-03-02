@@ -1,0 +1,30 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: content-box;
+}
+td {
+  height: 60px;
+  width: 60px;
+  border-bottom: solid black 3px;
+  background-color: aqua;
+}
+
+body {
+  text-align: center;
+  background-color: blueviolet;
+}
+
+table {
+  margin-top: 50px;
+  display: inline-block;
+}
+
+.mid {
+  border-left: solid black 3px;
+  border-right: solid black 3px;
+}
+
+.bottom {
+  border-bottom: none;
+}
