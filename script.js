@@ -4,6 +4,7 @@ resetButton.addEventListener("click", function () {
   resetBoard();
 });
 let turnsCounter = 0;
+let gameOngoing = true;
 
 let board = [];
 function resetBoard() {
@@ -29,17 +30,21 @@ let winOptions = [
 let turns = 9;
 
 function gamePlay(num) {
-  if (turnsCounter % 2 === 0 && typeof board[num] !== "string") {
-    turnsCounter++;
-    sign = "❌";
-    board[num] = sign;
-    cells[num - 1].innerHTML = sign;
-  } else {
-    if (typeof board[num] !== "string") {
+  if (gameOngoing) {
+    if (turnsCounter % 2 === 0 && typeof board[num] !== "string") {
       turnsCounter++;
-      sign = "⭕";
+      sign = "❌";
       board[num] = sign;
       cells[num - 1].innerHTML = sign;
+      gameOngoing = false;
+    } else {
+      if (typeof board[num] !== "string") {
+        turnsCounter++;
+        sign = "⭕";
+        board[num] = sign;
+        cells[num - 1].innerHTML = sign;
+        gameOngoing = false;
+      }
     }
     setTimeout(function () {
       checkWin(sign);
@@ -48,6 +53,7 @@ function gamePlay(num) {
 }
 
 function checkWin(symbol) {
+  gameOngoing = true;
   for (let x of winOptions) {
     let isWinCount = 0;
 
