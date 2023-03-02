@@ -15,7 +15,6 @@ function resetBoard() {
     cells[x].addEventListener("click", function () {});
   }
 }
-// resetButton.addEventListener(resetBoard());
 
 let winOptions = [
   [1, 2, 3],
