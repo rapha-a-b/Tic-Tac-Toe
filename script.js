@@ -17,7 +17,6 @@ function resetBoard() {
   turnsCounter = 0;
   for (let x = 0; x < cells.length; x++) {
     cells[x].innerHTML = "";
-    // cells[x].addEventListener("click", function () {});
   }
 }
 
