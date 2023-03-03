@@ -4,8 +4,8 @@
   box-sizing: content-box;
 }
 td {
-  height: 60px;
-  width: 60px;
+  height: 20vw;
+  width: 20vw;
   border-bottom: solid black 3px;
   background-color: aqua;
 }
@@ -36,6 +36,7 @@ table {
   margin: auto;
   margin-top: 10px;
   padding-bottom: 0px;
+  font-size: 4vw;
 }
 #win-count div {
   display: inline-block;
