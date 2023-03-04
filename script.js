@@ -38,7 +38,6 @@ let turns = 9;
 function gameMovesX(num) {
   if (gameOngoing) {
     if (typeof board[num] !== "string" && turnsCounter % 2 === 0) {
-      console.log(turnsCounter);
       turnsCounter++;
       gameOngoing = false;
       sign = "❌";
@@ -50,9 +49,7 @@ function gameMovesX(num) {
 }
 
 function gameMoveO() {
-  console.log(turnsCounter);
   if (turnsCounter % 2 !== 0 && gameOngoing) {
-    console.log("after");
     let pick = checkOptions();
 
     setTimeout(function () {
@@ -92,10 +89,9 @@ function gamePlay(symbol) {
 }
 
 function ScoreKeep(sign) {
-  console.log("im active");
   if (sign === "❌") {
     Xwin++;
-    console.log(Xwin);
+
     xScore.innerHTML = Xwin;
   } else {
     Owin++;
@@ -113,8 +109,6 @@ function checkOptions() {
     }
   }
   let pickStep = oOptions[randomGen(oOptions.length)];
-  console.log(oOptions);
-  console.log(pickStep);
   return pickStep;
 }
 
