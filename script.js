@@ -10,11 +10,14 @@ let turnsCounter = 0;
 let gameOngoing = true;
 let Xwin = 0;
 let Owin = 0;
+let oOptions = [];
 
-let board = [];
+let board = ["skip", 1, 2, 3, 4, 5, 6, 7, 8, 9];
 function resetBoard() {
-  board = [];
+  gameOngoing = true;
   turnsCounter = 0;
+  let oOptions = [];
+  board = ["skip", 1, 2, 3, 4, 5, 6, 7, 8, 9];
   for (let x = 0; x < cells.length; x++) {
     cells[x].innerHTML = "";
   }
@@ -32,31 +35,39 @@ let winOptions = [
 ];
 let turns = 9;
 
-function gameMoves(num) {
+function gameMovesX(num) {
   if (gameOngoing) {
-    if (turnsCounter % 2 === 0 && typeof board[num] !== "string") {
+    if (typeof board[num] !== "string" && turnsCounter % 2 === 0) {
+      console.log(turnsCounter);
       turnsCounter++;
+      gameOngoing = false;
       sign = "❌";
       board[num] = sign;
       cells[num - 1].innerHTML = sign;
-      gameOngoing = false;
-    } else {
-      if (typeof board[num] !== "string") {
-        turnsCounter++;
-        sign = "⭕";
-        board[num] = sign;
-        cells[num - 1].innerHTML = sign;
-        gameOngoing = false;
-      }
-    }
-    setTimeout(function () {
       gamePlay(sign);
-    }, 10);
+    }
+  }
+}
+
+function gameMoveO() {
+  console.log(turnsCounter);
+  if (turnsCounter % 2 !== 0 && gameOngoing) {
+    console.log("after");
+    let pick = checkOptions();
+
+    setTimeout(function () {
+      sign = "⭕";
+      board[pick] = sign;
+      turnsCounter++;
+
+      cells[pick - 1].innerHTML = sign;
+      gamePlay(sign);
+    }, 500);
   }
 }
 
 function gamePlay(symbol) {
-  gameOngoing = true;
+  gameOngoing = false;
   for (let x of winOptions) {
     let isWinCount = 0;
 
@@ -64,16 +75,20 @@ function gamePlay(symbol) {
       if (board[y] === symbol) {
         isWinCount++;
         if (isWinCount === 3) {
+          gameOngoing = false;
           ScoreKeep(symbol);
-          alert(`${symbol} wins!`);
-
-          resetBoard();
+          setTimeout(function () {
+            alert(`${symbol} wins!`);
+          }, 100);
+          return;
         }
       } else {
         isWinCount = 0;
+        gameOngoing = true;
       }
     }
   }
+  gameMoveO();
 }
 
 function ScoreKeep(sign) {
@@ -86,4 +101,23 @@ function ScoreKeep(sign) {
     Owin++;
     oScore.innerHTML = `${Owin}`;
   }
+  setTimeout(function () {
+    resetBoard();
+  }, 100);
+}
+function checkOptions() {
+  oOptions = [];
+  for (let k of board) {
+    if (typeof k === "number") {
+      oOptions.push(k);
+    }
+  }
+  let pickStep = oOptions[randomGen(oOptions.length)];
+  console.log(oOptions);
+  console.log(pickStep);
+  return pickStep;
+}
+
+function randomGen(maxNum) {
+  return Math.floor(Math.random() * maxNum);
 }
