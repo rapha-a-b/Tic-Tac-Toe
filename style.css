@@ -1,0 +1,109 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: content-box;
+}
+td {
+  height: 10vw;
+  width: 10vw;
+  border-bottom: solid black 3px;
+  background-color: aqua;
+  font-size: 6vw;
+}
+
+body {
+  text-align: center;
+  background-color: blueviolet;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  height: 100vh;
+}
+
+table {
+  margin-top: 5px;
+  display: inline-block;
+}
+
+.mid {
+  border-left: solid black 3px;
+  border-right: solid black 3px;
+}
+
+.bottom {
+  border-bottom: none;
+}
+
+#win-count {
+  width: 30vw;
+  height: 10vw;
+  background-color: blue;
+  margin: auto;
+  margin-top: 10px;
+  padding-bottom: 0px;
+  font-size: 4vw;
+  margin-bottom: 20px;
+}
+#win-count div {
+  display: inline-block;
+  width: 35%;
+}
+
+.container {
+  background-color: white;
+  width: 80%;
+  display: inline-block;
+  height: 110%;
+}
+
+button {
+  height: 5vw;
+  width: 5vw;
+  min-width: 50px;
+  max-width: 100px;
+  margin: 10px;
+}
+
+.vs {
+  background-color: rgb(35, 141, 202);
+}
+
+button {
+  min-width: 80px;
+  font-size: 1.5em;
+}
+
+.regBg {
+  background: aqua;
+}
+
+.winBg {
+  background-color: green;
+}
+
+.message {
+  height: 2vw;
+  font-size: 2rem;
+  margin-bottom: 3vw;
+}
+
+@media (min-width: 1000px) {
+  td {
+    height: 5vw;
+    width: 5vw;
+    font-size: 3vw;
+  }
+  #win-count {
+    display: inline-block;
+    width: 20%;
+    height: 25%;
+    font-size: 3vw;
+  }
+  button {
+    width: 2vw;
+    height: 2vw;
+    margin-top: 10px;
+    font-size: 1.5em;
+    margin-bottom: 30px;
+  }
+}

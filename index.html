@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script defer src="./script.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="win-count">
+        <div>
+          ❌<br />
+          <span id="x">0</span>
+        </div>
+        <div>⭕<br /><span id="o">0</span></div>
+      </div>
+      <br />
+      <button class="vs" onclick="vsPc()" id="Pc">VS PC</button>
+      <button onclick="players2()" id="vs2Players">2 play</button>
+      <br />
+      <table cellspacing="0">
+        <tr>
+          <td
+            class="cellClick empty top-cell left-side"
+            onclick="play(this)"
+            id="1"
+          ></td>
+          <td class="cellClick mid" onclick="play(this)" id="2"></td>
+          <td
+            class="cellClick empty top-cell right-side"
+            onclick="play(this)"
+            id="3"
+          ></td>
+        </tr>
+        <tr>
+          <td class="cellClick" onclick="play(this)" id="4"></td>
+          <td class="cellClick mid" onclick="play(this)" id="5"></td>
+          <td class="cellClick" onclick="play(this)" id="6"></td>
+        </tr>
+        <tr>
+          <td class="cellClick bottom" onclick="play(this)" id="7"></td>
+          <td class="cellClick bottom mid" onclick="play(this)" id="8"></td>
+          <td class="cellClick bottom" onclick="play(this)" id="9"></td>
+        </tr>
+      </table>
+      <br />
+      <button onclick="resetBoard()">Reset</button>
+    </div>
+  </body>
+</html>
